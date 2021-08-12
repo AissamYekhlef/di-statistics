@@ -31,3 +31,14 @@ Route::group([
 
 });
 
+Route::group([
+    'middleware' => 'auth.jwt',
+
+], function () {
+
+    Route::get('/fields', [FieldController::class, 'index']);
+    Route::get('/entitytypes', [EntityTypeController::class, 'index']);
+    Route::get('/entitytypes/{entityType}', [EntityTypeController::class, 'show']);
+    Route::get('/entitytypes/{entityType}/fields', [EntityTypeController::class, 'fields']);
+
+});
