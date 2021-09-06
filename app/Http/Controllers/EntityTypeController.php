@@ -14,7 +14,12 @@ class EntityTypeController extends Controller
      */
     public function index()
     {
-        return EntityType::all();
+        if(request('with_fields')){
+            return EntityType::with('_fields')->get();
+        }else{
+            return EntityType::all();
+        }
+        
     }
 
     /**
