@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EntityTypeController;
 use App\Http\Controllers\FieldController;
+use App\Http\Controllers\StatisticsController;
 use App\Models\EntityType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -40,5 +41,13 @@ Route::group([
     Route::get('/entitytypes', [EntityTypeController::class, 'index']);
     Route::get('/entitytypes/{entityType}', [EntityTypeController::class, 'show']);
     Route::get('/entitytypes/{entityType}/fields', [EntityTypeController::class, 'fields']);
+
+    Route::group([
+        'prefix' => 'statistics',
+    ], 
+    function(){
+        // Route::get('fields', [StatisticsController::class, 'index']);
+        Route::get('fields/{field}', [StatisticsController::class, 'field_statistics']);
+    });
 
 });
