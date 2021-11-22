@@ -24,16 +24,6 @@ class FieldController extends Controller
         // return 'Fields List';
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -46,26 +36,14 @@ class FieldController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Field  $field
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Field $field)
+    public function fieldsByFieldType($fieldtype)
     {
-        //
+        return Field::where('fieldtype', $fieldtype)->get();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Field  $field
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Field $field)
+    public function fieldsByFieldTypeId($fieldtype_id)
     {
-        //
+        return Field::where('fieldtype_id', $fieldtype_id)->get();
     }
+
 }

@@ -23,7 +23,7 @@ class EntityFactory extends Factory
     public function definition()
     {
         return [
-            'entitytype_id' => rand(1,8),
+            'entitytype_id' => rand(1,9),
             'created_at' => Carbon::now()->subMinutes(rand(1,20000))
         ];
     }

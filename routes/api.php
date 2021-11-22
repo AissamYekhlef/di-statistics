@@ -38,6 +38,8 @@ Route::group([
 ], function () {
 
     Route::get('/fields', [FieldController::class, 'index']);
+    Route::get('/fields/by/fieldtype/{fieldtype}', [FieldController::class, 'fieldsByFieldType']);
+    Route::get('/fields/by/fieldtype_id/{fieldtype}', [FieldController::class, 'fieldsByFieldTypeId']);
     Route::get('/entitytypes', [EntityTypeController::class, 'index']);
     Route::get('/entitytypes/{entityType}', [EntityTypeController::class, 'show']);
     Route::get('/entitytypes/{entityType}/fields', [EntityTypeController::class, 'fields']);
